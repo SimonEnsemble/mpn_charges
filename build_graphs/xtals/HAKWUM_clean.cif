@@ -1,0 +1,42 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_GaPH2CO3F
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.04320042
+_cell_length_b   7.24679992
+_cell_length_c   8.34990000
+_cell_angle_alpha   107.48900139
+_cell_angle_beta   92.44400279
+_cell_angle_gamma   109.33800243
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GaPH2CO3F
+_chemical_formula_sum   'Ga2 P2 H4 C2 O6 F2'
+_cell_volume   271.189040937
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Ga 0.0 0.5 0.0   1.790607
+ Ga 0.5 0.0 0.0   1.672795
+ P 0.5127 0.54637 0.77603   1.623346
+ P 0.4873 0.45363 0.22397   1.623345
+ H 0.2196 0.479 0.5298   0.160331
+ H 0.343 0.3026 0.5084   0.175534
+ H 0.7804 0.521 0.4702   0.160329
+ H 0.657 0.6974 0.4916   0.175552
+ C 0.3916 0.4517 0.5503   -0.466081
+ C 0.6084 0.5483 0.4497   -0.466074
+ O 0.269 0.4336 0.8557   -0.910487
+ O 0.5931 0.7814 0.8368   -0.884275
+ O 0.7744 0.4903 0.7995   -0.870844
+ O 0.731 0.5664 0.1443   -0.910487
+ O 0.4069 0.2186 0.1632   -0.884274
+ O 0.2256 0.5097 0.2005   -0.870844
+ F 0.1947 0.7972 0.0589   -0.559237
+ F 0.8053 0.2028 0.9411   -0.559237

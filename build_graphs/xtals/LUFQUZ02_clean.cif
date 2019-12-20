@@ -1,0 +1,44 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_FeNiH4(C4N3)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.24210000
+_cell_length_b   7.26660000
+_cell_length_c   7.26960000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeNiH4(C4N3)2
+_chemical_formula_sum   'Fe1 Ni1 H4 C8 N6'
+_cell_volume   382.565926685
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Fe 0.0 0.0 0.0   0.376646
+ Ni 0.0 0.5 0.5   0.048151
+ H 0.6594 0.0 0.7339   0.112288
+ H 0.6594 0.0 0.2661   0.112275
+ H 0.3406 0.0 0.7339   0.112285
+ H 0.3406 0.0 0.2661   0.112271
+ C 0.0 0.6757 0.688   0.065771
+ C 0.0 0.3243 0.312   0.065771
+ C 0.0 0.3243 0.688   0.06578
+ C 0.0 0.6757 0.312   0.06578
+ C 0.5969 0.0 0.8456   0.057471
+ C 0.5969 0.0 0.1544   0.05747
+ C 0.4031 0.0 0.8456   0.057459
+ C 0.4031 0.0 0.1544   0.057459
+ N 0.0 0.7949 0.7912   -0.288319
+ N 0.0 0.2051 0.2088   -0.288319
+ N 0.0 0.2051 0.7912   -0.28832
+ N 0.0 0.7949 0.2088   -0.28832
+ N 0.6927 0.0 0.0   -0.1068
+ N 0.3073 0.0 0.0   -0.106798

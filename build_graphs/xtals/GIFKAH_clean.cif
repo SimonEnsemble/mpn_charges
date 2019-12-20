@@ -1,0 +1,52 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_CdNiH10(C5N3)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.17699985
+_cell_length_b   7.59800045
+_cell_length_c   9.72500000
+_cell_angle_alpha   95.69999619
+_cell_angle_beta   98.79999738
+_cell_angle_gamma   90.44000054
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CdNiH10(C5N3)2
+_chemical_formula_sum   'Cd1 Ni1 H10 C10 N6'
+_cell_volume   521.33753911
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Cd 0.0 0.0 0.0   0.986837
+ Ni 0.5 0.5 0.0   0.006414
+ H 0.00378 0.89926 0.69311   0.288181
+ H 0.29274 0.90341 0.8132   0.108807
+ H 0.2165 0.88763 0.5313   0.133492
+ H 0.55221 0.13481 0.63607   0.092773
+ H 0.52202 0.88771 0.64884   0.157846
+ H 0.99622 0.10074 0.30689   0.288183
+ H 0.70726 0.09659 0.1868   0.108807
+ H 0.7835 0.11237 0.4687   0.1335
+ H 0.44779 0.86519 0.36393   0.092782
+ H 0.47798 0.11229 0.35116   0.157853
+ C 0.6664 0.3217 0.9646   0.112509
+ C 0.6666 0.6675 0.9574   0.11661
+ C 0.2585 0.9778 0.7463   0.162168
+ C 0.2782 0.9868 0.5938   -0.165271
+ C 0.4898 0.9926 0.5772   -0.15442
+ C 0.3336 0.6783 0.0354   0.112509
+ C 0.3334 0.3325 0.0426   0.11661
+ C 0.7415 0.0222 0.2537   0.162169
+ C 0.7218 0.0132 0.4062   -0.165274
+ C 0.5102 0.0074 0.4228   -0.154435
+ N 0.7712 0.2132 0.9474   -0.422317
+ N 0.7718 0.7703 0.9365   -0.43358
+ N 0.0603 0.9822 0.7712   -0.493427
+ N 0.2288 0.7868 0.0526   -0.422317
+ N 0.2282 0.2297 0.0635   -0.43358
+ N 0.9397 0.0178 0.2288   -0.493428

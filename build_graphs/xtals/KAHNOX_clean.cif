@@ -1,0 +1,58 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_Cu5(CN)6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   9.42040028
+_cell_length_b   9.42039984
+_cell_length_c   16.44900000
+_cell_angle_alpha   88.51209726
+_cell_angle_beta   88.51209733
+_cell_angle_gamma   83.72219881
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cu5(CN)6
+_chemical_formula_sum   'Cu10 C12 N12'
+_cell_volume   1450.11335159
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Cu 0.49409 0.13507 0.00207   0.327867
+ Cu 0.86493 0.50591 0.49793   0.327867
+ Cu 0.50591 0.86493 0.99793   0.327866
+ Cu 0.13507 0.49409 0.50207   0.327866
+ Cu 0.0 0.0 0.0   0.49439
+ Cu 0.0 0.0 0.5   0.49439
+ Cu 0.6346 0.3654 0.25   0.293173
+ Cu 0.3654 0.6346 0.75   0.293173
+ Cu 0.5984 0.4016 0.75   0.519541
+ Cu 0.4016 0.5984 0.25   0.519541
+ C 0.6818 0.962 0.9886   0.00011
+ C 0.5705 0.2845 0.1607   -0.073383
+ C 0.5134 0.2412 0.9017   0.041839
+ C 0.038 0.3182 0.5114   0.00011
+ C 0.7155 0.4295 0.3393   -0.073383
+ C 0.7588 0.4866 0.5983   0.041839
+ C 0.3182 0.038 0.0114   0.00011
+ C 0.4295 0.7155 0.8393   -0.073383
+ C 0.4866 0.7588 0.0983   0.04184
+ C 0.962 0.6818 0.4886   0.00011
+ C 0.2845 0.5705 0.6607   -0.073383
+ C 0.2412 0.5134 0.4017   0.041839
+ N 0.8014 0.9758 0.9865   -0.332069
+ N 0.5416 0.2298 0.1011   -0.2465
+ N 0.5339 0.3055 0.8427   -0.371415
+ N 0.0242 0.1986 0.5135   -0.332069
+ N 0.7702 0.4584 0.3989   -0.2465
+ N 0.6945 0.4661 0.6573   -0.371415
+ N 0.1986 0.0242 0.0135   -0.332069
+ N 0.4584 0.7702 0.8989   -0.2465
+ N 0.4661 0.6945 0.1573   -0.371415
+ N 0.9758 0.8014 0.4865   -0.332069
+ N 0.2298 0.5416 0.6011   -0.2465
+ N 0.3055 0.5339 0.3427   -0.371415

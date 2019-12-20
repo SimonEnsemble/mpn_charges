@@ -1,0 +1,56 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_Zn3P2CO10
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.00299957
+_cell_length_b   8.54339988
+_cell_length_c   12.43360000
+_cell_angle_alpha   92.99000044
+_cell_angle_beta   97.13800381
+_cell_angle_gamma   91.46499719
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Zn3P2CO10
+_chemical_formula_sum   'Zn6 P4 C2 O20'
+_cell_volume   526.33251103
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Zn 0.3937 0.86326 0.05955   1.262802
+ Zn 0.8862 0.63724 0.8605   1.244045
+ Zn 0.1447 0.0318 0.29767   1.169568
+ Zn 0.6063 0.13674 0.94045   1.262803
+ Zn 0.1138 0.36276 0.1395   1.244045
+ Zn 0.8553 0.9682 0.70233   1.169567
+ P 0.3822 0.8239 0.7997   1.79593
+ P 0.9582 0.7121 0.1231   1.783528
+ P 0.6178 0.1761 0.2003   1.79593
+ P 0.0418 0.2879 0.8769   1.783528
+ C 0.9595 0.915 0.4827   0.488672
+ C 0.0405 0.085 0.5173   0.488673
+ O 0.6609 0.725 0.1233   -0.807719
+ O 0.4549 0.9144 0.9097   -0.988608
+ O 0.1187 0.8633 0.1713   -0.883008
+ O 0.0452 0.6949 0.007   -0.976004
+ O 0.0519 0.5738 0.1901   -0.731653
+ O 0.5099 0.6636 0.8082   -0.804809
+ O 0.0716 0.7987 0.7785   -0.904177
+ O 0.4724 0.9198 0.7103   -0.832668
+ O 0.0101 0.8632 0.3901   -0.442129
+ O 0.857 0.8365 0.5493   -0.373772
+ O 0.3391 0.275 0.8767   -0.807718
+ O 0.5451 0.0856 0.0903   -0.988608
+ O 0.8813 0.1367 0.8287   -0.883008
+ O 0.9548 0.3051 0.993   -0.976004
+ O 0.9481 0.4262 0.8099   -0.731653
+ O 0.4901 0.3364 0.1918   -0.804808
+ O 0.9284 0.2013 0.2215   -0.904177
+ O 0.5276 0.0802 0.2897   -0.832667
+ O 0.9899 0.1368 0.6099   -0.442128
+ O 0.143 0.1635 0.4507   -0.373773

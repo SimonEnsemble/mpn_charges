@@ -1,0 +1,44 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_FeH4Pt(C4N3)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.28100000
+_cell_length_b   7.44099963
+_cell_length_c   7.46000000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   95.81400217
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeH4Pt(C4N3)2
+_chemical_formula_sum   'Fe1 H4 Pt1 C8 N6'
+_cell_volume   402.088227176
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ Fe 0.0 0.5 0.5   0.402256
+ H 0.6584 0.4912 0.7612   0.116432
+ H 0.3416 0.5088 0.7612   0.116435
+ H 0.3416 0.5088 0.2388   0.116436
+ H 0.6584 0.4912 0.2388   0.116439
+ Pt 0.0 0.0 0.0   -0.107979
+ C 0.596 0.495 0.653   0.060224
+ C 0.9914 0.189 0.811   0.117786
+ C 0.404 0.505 0.653   0.060212
+ C 0.0086 0.811 0.811   0.117781
+ C 0.404 0.505 0.347   0.060225
+ C 0.0086 0.811 0.189   0.117778
+ C 0.596 0.495 0.347   0.060214
+ C 0.9914 0.189 0.189   0.117773
+ N 0.9905 0.3 0.7047   -0.306939
+ N 0.0095 0.7 0.7047   -0.306939
+ N 0.0095 0.7 0.2953   -0.30694
+ N 0.9905 0.3 0.2953   -0.30694
+ N 0.6897 0.489 0.5   -0.122126
+ N 0.3103 0.511 0.5   -0.122126

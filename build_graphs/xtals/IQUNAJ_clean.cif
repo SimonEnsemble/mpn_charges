@@ -1,0 +1,52 @@
+{'_ref': 'TBD', '_srcid': 'CAKYAQ_clean', 'submitters': [{'name': 'Dalar Nazarian Jeff Camp and David Sholl', 'email': 'dalar@gatech.edu jcamp6@gatech.edu'}], '_method': 'VASP DFT with PBE;DDEC'}
+data_KY(CO2)4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.90399953
+_cell_length_b   9.24660016
+_cell_length_c   9.24660000
+_cell_angle_alpha   76.59589907
+_cell_angle_beta   61.21830104
+_cell_angle_gamma   61.21830201
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   KY(CO2)4
+_chemical_formula_sum   'K2 Y2 C8 O16'
+_cell_volume   584.808924384
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_charge
+ K 0.875 0.25 0.25   0.93497
+ K 0.125 0.75 0.75   0.934979
+ Y 0.625 0.75 0.75   1.906216
+ Y 0.375 0.25 0.25   1.906215
+ C 0.5785 0.4785 0.0255   0.55038
+ C 0.5825 0.0215 0.4745   0.550378
+ C 0.604 0.9745 0.9785   0.550378
+ C 0.057 0.5255 0.5215   0.550382
+ C 0.4215 0.5215 0.9745   0.550375
+ C 0.4175 0.9785 0.5255   0.550373
+ C 0.396 0.0255 0.0215   0.550373
+ C 0.943 0.4745 0.4785   0.550377
+ O 0.6919 0.5436 0.9406   -0.620279
+ O 0.6087 0.3534 0.118   -0.640394
+ O 0.6761 0.9564 0.5594   -0.620279
+ O 0.5801 0.1466 0.382   -0.640391
+ O 0.6325 0.0594 0.0436   -0.62029
+ O 0.7267 0.882 0.8534   -0.640388
+ O 0.2355 0.4406 0.4564   -0.620289
+ O 0.9621 0.618 0.6466   -0.640391
+ O 0.3081 0.4564 0.0594   -0.620279
+ O 0.3913 0.6466 0.882   -0.640394
+ O 0.3239 0.0436 0.4406   -0.620279
+ O 0.4199 0.8534 0.618   -0.640391
+ O 0.3675 0.9406 0.9564   -0.620288
+ O 0.2733 0.118 0.1466   -0.640386
+ O 0.7645 0.5594 0.5436   -0.620291
+ O 0.0379 0.382 0.3534   -0.64039
