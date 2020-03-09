@@ -22,24 +22,24 @@ end
 const RADII = cordero_covalent_atomic_radii()
 
 """
-    a = adjacency_matrix(framework, apply_pbc)
+    a = adjacency_matrix(crystal, apply_pbc)
 
-Compute the adjacency matrix `a` of the framework, where `a[i, j]` is the
+Compute the adjacency matrix `a` of the crystal, where `a[i, j]` is the
 distance between atom `i` and `j`. This matrix is symmetric. If `apply_pbc` is `true`, 
 periodic boundary conditions are applied when computing the distance.
 
 # Arguments
-* `framework::Framework`: crystal structure
+* `crystal::Crystal`: crystal structure
 * `apply_pbc::Bool` whether or not to apply periodic boundary conditions when computing the distance
 
 # Returns
 * `a::Array{Float64, 2}`: symmetric, square adjacency matrix with zeros on the diagonal
 """
-function adjacency_matrix(framework::Framework, apply_pbc::Bool)
-    A = zeros(framework.atoms.n_atoms, framework.atoms.n_atoms)
-    for i = 1:framework.atoms.n_atoms
-        for j = (i+1):framework.atoms.n_atoms
-            A[i, j] = distance(framework, i, j, apply_pbc)
+function adjacency_matrix(crystal::Crystal, apply_pbc::Bool)
+    A = zeros(crystal.atoms.n, crystal.atoms.n)
+    for i = 1:crystal.atoms.n
+        for j = (i+1):crystal.atoms.n
+            A[i, j] = distance(crystal.atoms, crystal.box, i, j, apply_pbc)
             A[j, i] = A[i, j] # symmetry
         end
     end
@@ -48,14 +48,14 @@ function adjacency_matrix(framework::Framework, apply_pbc::Bool)
 end
 
 """
-    ids_neighbors, xs, rs = neighborhood(framework, i, r, am)
+    ids_neighbors, xs, rs = neighborhood(crystal, i, r, am)
 
-Find and characterize the neighborhood of atom `i` in the crystal `framework`.
+Find and characterize the neighborhood of atom `i` in the crystal `crystal`.
 A neighboorhood is defined as all atoms within a distance `r` from atom `i`.
-The adjacency matrix `am` is used to find the distances of all other atoms in the framework from atom `i`.
+The adjacency matrix `am` is used to find the distances of all other atoms in the crystal from atom `i`.
 
 # Returns
-* `ids_neighbors::Array{Int, 1}`: indices of `framework.atoms` within the neighborhood of atom `i`.
+* `ids_neighbors::Array{Int, 1}`: indices of `crystal.atoms` within the neighborhood of atom `i`.
 * `xs::Array{Array{Float64, 1}, 1}`: array of Cartesian positions of the atoms surrounding atom `i`. 
 the nearest image convention has been applied to find the nearest periodic image. also, the coordinates of atom `i`
 have been subtracted off from these coordinates so that atom `i` lies at the origin of this new coordinate system.
@@ -63,7 +63,7 @@ The first vector in `xs` is `[0, 0, 0]` corresponding to atom `i`.
 the choice of type is for the Voronoi decomposition in Scipy. 
 * `rs::Array{Float64, 1}`: list of distances of the neighboring atoms from atom `i`.
 """
-function neighborhood(framework::Framework, i::Int, r::Float64, am::Array{Float64, 2})
+function neighborhood(crystal::Crystal, i::Int, r::Float64, am::Array{Float64, 2})
     # get indices of atoms within a distance r of atom i
     #  the greater than zero part is to not include itself
     ids_neighbors = findall((am[:, i] .> 0.0) .& (am[:, i] .< r))
@@ -81,9 +81,9 @@ function neighborhood(framework::Framework, i::Int, r::Float64, am::Array{Float6
     xs = [[0.0, 0.0, 0.0]] # this way atom zero is itself
     for j in ids_neighbors
         # subtract off atom i, apply nearest image
-        xf = framework.atoms.xf[:, j] - framework.atoms.xf[:, i]
+        xf = crystal.atoms.coords.xf[:, j] - crystal.atoms.coords.xf[:, i]
         nearest_image!(xf)
-        x = framework.box.f_to_c * xf
+        x = crystal.box.f_to_c * xf
         push!(xs, x)
     end
 
@@ -94,7 +94,7 @@ end
     ids_shared_voro_face = shared_voronoi_faces(ids_neighbors, xs)
 
 Of the neighboring atoms, find those that share a Voronoi face.
-Returns ids in the original framework passed to `neighborhood`
+Returns ids in the original crystal passed to `neighborhood`
 """
 function _shared_voronoi_faces(ids_neighbors::Array{Int, 1},
                               xs::Array{Array{Float64, 1}, 1})
@@ -103,7 +103,7 @@ function _shared_voronoi_faces(ids_neighbors::Array{Int, 1},
 
     voro = scipy.Voronoi(xs)
     rps = voro.ridge_points # connections with atom zero are connections with atom i.
-    ids_shared_voro_face = Int[] # corresponds to xs, not to atoms of framework
+    ids_shared_voro_face = Int[] # corresponds to xs, not to atoms of crystal
     for k = 1:size(rps)[1]
         if sort(rps[k, :])[1] == 0 # a shared face with atom i!
             push!(ids_shared_voro_face, sort(rps[k, :])[2])
@@ -113,16 +113,16 @@ function _shared_voronoi_faces(ids_neighbors::Array{Int, 1},
     return ids_neighbors[ids_shared_voro_face]
 end
 
-function bonded_atoms(framework::Framework, i::Int, am::Array{Float64, 2}; r::Float64=6.0, tol::Float64=0.25)
-    species_i = framework.atoms.species[i]
+function bonded_atoms(crystal::Crystal, i::Int, am::Array{Float64, 2}; r::Float64=6.0, tol::Float64=0.25)
+    species_i = crystal.atoms.species[i]
     
-    ids_neighbors, xs, rs = neighborhood(framework, i, r, am)
+    ids_neighbors, xs, rs = neighborhood(crystal, i, r, am)
 
     ids_shared_voro_faces = _shared_voronoi_faces(ids_neighbors, xs)
 
     ids_bonded = Int[]
     for j in ids_shared_voro_faces
-        species_j = framework.atoms.species[j]
+        species_j = crystal.atoms.species[j]
         # sum of covalent radii
         radii_sum = RADII[species_j] + RADII[species_i]
         if am[i, j] < radii_sum + tol
@@ -132,15 +132,15 @@ function bonded_atoms(framework::Framework, i::Int, am::Array{Float64, 2}; r::Fl
     return ids_bonded
 end
 
-function bonds!(framework::Framework, apply_pbc::Bool)
-    if ne(framework.bonds) > 0
-        @warn framework.name * " already has bonds"
+function bonds!(crystal::Crystal, apply_pbc::Bool)
+    if ne(crystal.bonds) > 0
+        @warn crystal.name * " already has bonds"
     end
-    am = adjacency_matrix(framework, apply_pbc)
+    am = adjacency_matrix(crystal, apply_pbc)
 
-    for i = 1:framework.atoms.n_atoms
-        for j in bonded_atoms(framework, i, am)
-            add_edge!(framework.bonds, i, j)
+    for i = 1:crystal.atoms.n
+        for j in bonded_atoms(crystal, i, am)
+            add_edge!(crystal.bonds, i, j)
         end
     end
 end
