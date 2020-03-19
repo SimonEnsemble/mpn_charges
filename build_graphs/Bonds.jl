@@ -16,6 +16,18 @@ function cordero_covalent_atomic_radii()
     for atom in eachrow(df)
         atom_to_radius[Symbol(atom[:atom])] = atom[:covalent_radius_A]
     end
+    # Change the cordero covalent atomic radius of a few metals to fix bonds between 
+    #  metals and (mostly) N-terminated and O-terminated linkers
+    atom_to_radius[:Cd] = 1.58
+    atom_to_radius[:Zn] = 1.48
+    atom_to_radius[:Ag] = 1.65
+    atom_to_radius[:Pb] = 1.90
+    atom_to_radius[:Mo] = 1.57
+    atom_to_radius[:Sn] = 1.48
+    atom_to_radius[:Na] = 1.72
+    atom_to_radius[:Cu] = 1.46
+    atom_to_radius[:Ni] = 1.37
+    atom_to_radius[:Cr] = 1.41
     return atom_to_radius
 end
 
