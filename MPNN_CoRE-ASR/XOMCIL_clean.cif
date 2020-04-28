@@ -1,0 +1,36 @@
+data_XOMCIL_clean_PM
+_symmetry_space_group_name_H-M	'P1'
+_cell_length_a	4.730800
+_cell_length_b	7.773400
+_cell_length_c	8.411800
+_cell_angle_alpha	62.480300
+_cell_angle_beta	89.944600
+_cell_angle_gamma	89.880100
+_symmetry_Int_Tables_number 1
+
+loop_
+_symmetry_equiv_pos_as_xyz
+'x,y,z'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er11	Er1	0.002000	0.208400	0.586600
+Er21	Er2	0.002000	0.795000	0.413400
+C11	C1	0.499000	0.030000	0.552000
+C21	C2	0.499000	0.582000	0.448000
+C31	C3	0.995000	0.900000	0.000000
+C41	C4	0.997000	0.097000	0.000000
+O11	O1	0.500000	0.126300	0.641600
+O21	O2	0.014000	0.903000	0.852000
+O31	O3	0.014000	0.245000	0.848000
+O41	O4	0.268000	0.994000	0.504000
+O51	O5	0.747000	0.993000	0.506000
+O61	O6	0.500000	0.767900	0.358400
+O71	O7	0.014000	0.755000	0.148000
+O81	O8	0.014000	0.093000	0.152000
+O91	O9	0.268000	0.498000	0.496000
+O101	O10	0.747000	0.499000	0.494000

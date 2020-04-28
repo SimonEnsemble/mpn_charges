@@ -1,0 +1,33 @@
+data_FIGXAU_clean_PM
+_symmetry_space_group_name_H-M	'P1'
+_cell_length_a	6.547000
+_cell_length_b	6.632300
+_cell_length_c	6.632300
+_cell_angle_alpha	115.205000
+_cell_angle_beta	106.371000
+_cell_angle_gamma	73.629300
+_symmetry_Int_Tables_number 1
+
+loop_
+_symmetry_equiv_pos_as_xyz
+'x,y,z'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Er11	Er1	0.000000	0.000000	0.000000
+H11	H1	0.116000	0.843000	0.461000
+H21	H2	0.884000	0.461000	0.843000
+H31	H3	0.500000	0.070000	0.070000
+C11	C1	0.966600	0.937400	0.468600
+C21	C2	0.033400	0.468600	0.937400
+C31	C3	0.500000	0.934400	0.934400
+O11	O1	0.879200	0.004500	0.313300
+O21	O2	0.884900	0.975300	0.631100
+O31	O3	0.665100	0.860700	0.846100
+O41	O4	0.120800	0.313300	0.004500
+O51	O5	0.115100	0.631100	0.975300
+O61	O6	0.334900	0.846100	0.860700

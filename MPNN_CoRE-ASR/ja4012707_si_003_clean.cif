@@ -1,0 +1,30 @@
+data_ja4012707_si_003_clean_PM
+_symmetry_space_group_name_H-M	'P1'
+_cell_length_a	7.938800
+_cell_length_b	7.938800
+_cell_length_c	7.938800
+_cell_angle_alpha	60.000000
+_cell_angle_beta	60.000000
+_cell_angle_gamma	60.000000
+_symmetry_Int_Tables_number 1
+
+loop_
+_symmetry_equiv_pos_as_xyz
+'x,y,z'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Zn11	Zn1	0.375000	0.875000	0.875000
+Zn21	Zn2	0.625000	0.125000	0.125000
+C11	C1	0.527600	0.417200	0.027600
+C21	C2	0.472400	0.972400	0.972400
+C31	C3	0.527600	0.027600	0.417200
+C41	C4	0.472400	0.582800	0.972400
+C51	C5	0.082800	0.972400	0.972400
+C61	C6	0.527600	0.027600	0.027600
+C71	C7	0.472400	0.972400	0.582800
+C81	C8	0.917200	0.027600	0.027600
