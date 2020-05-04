@@ -1,0 +1,129 @@
+data_ja406030p_si_007_clean
+_audit_creation_date              2015-10-30
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P63/MMC'
+_symmetry_Int_Tables_number       194
+_symmetry_cell_setting            hexagonal
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+  -y,x-y,z
+  -x+y,-x,z
+  -x,-y,z+1/2
+  y,-x+y,z+1/2
+  x-y,x,z+1/2
+  y,x,-z
+  x-y,-y,-z
+  -x,-x+y,-z
+  -y,-x,-z+1/2
+  -x+y,y,-z+1/2
+  x,x-y,-z+1/2
+  -x,-y,-z
+  y,-x+y,-z
+  x-y,x,-z
+  x,y,-z+1/2
+  -y,x-y,-z+1/2
+  -x+y,-x,-z+1/2
+  -y,-x,z
+  -x+y,y,z
+  x,x-y,z
+  y,x,z+1/2
+  x-y,-y,z+1/2
+  -x,-x+y,z+1/2
+_cell_length_a                    19.2087
+_cell_length_b                    19.2087
+_cell_length_c                    36.0420
+_cell_angle_alpha                 90.0000
+_cell_angle_beta                  90.0000
+_cell_angle_gamma                 120.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+H2     H     0.61370   0.91210   0.91250   0.01267  Uiso   1.00
+H3     H     0.46780   0.14250   0.65270   0.01267  Uiso   1.00
+H4     H     0.64700   0.09270   0.59260   0.01267  Uiso   1.00
+C3     C     0.72250   0.57081   0.04023   0.01267  Uiso   1.00
+C8     C     0.35740   0.90283   0.97639   0.01267  Uiso   1.00
+C12    C     0.49330   0.10340   0.89514   0.01267  Uiso   1.00
+C14    C     0.26180   0.39780   0.92446   0.01267  Uiso   1.00
+C16    C     0.13330   0.62720   0.35916   0.01267  Uiso   1.00
+O4     O     0.40591   0.96147   0.54257   0.01267  Uiso   1.00
+O5     O     0.88643   0.36976   0.99164   0.01267  Uiso   1.00
+O6     O     0.65950   0.45735   0.71013   0.01267  Uiso   1.00
+O7     O     0.89060   0.22990   0.35320   0.01267  Uiso   1.00
+Zn1    Zn    0.47652   0.52348   0.03480   0.01267  Uiso   1.00
+H1     H     0.76270   0.23730   0.00140   0.01267  Uiso   1.00
+C51    C     0.77609   0.22391   0.02434   0.01267  Uiso   1.00
+N1     N     0.45533   0.54467   0.08725   0.01267  Uiso   1.00
+Cr1    Cr    0.44817   0.72408   0.25000   0.01267  Uiso   1.00
+C1     C     0.18720   0.59360   0.30335   0.01267  Uiso   1.00
+N8     N     0.64960   0.82480   0.63280   0.01267  Uiso   1.00
+C25    C     0.57445   0.14890   0.65860   0.01267  Uiso   1.00
+C35    C     0.38280   0.19140   0.40660   0.01267  Uiso   1.00
+O36    O     0.33333   0.66667   0.25000   0.01267  Uiso   1.00
+loop_
+_geom_bond_atom_site_label_1
+_geom_bond_atom_site_label_2
+_geom_bond_distance
+_geom_bond_site_symmetry_2
+_ccdc_geom_bond_type
+H2     C14     0.940   2_665 S
+H3     C16     0.941   15_656 S
+H4     C12     0.941   11_656 S
+C3     C14     1.376   13_666 A
+C3     C8      1.485   9_656 S
+C3     C51     1.373   2_655 A
+C8     C3      1.485   9_666 S
+C8     O4      1.247   16_556 A
+C8     O5      1.248   7_557 A
+C12    H4      0.941   11_656 S
+C12    C16     1.390   6_655 A
+C12    N1      1.310   9_656 A
+C14    H2      0.940   3_565 S
+C14    C35     1.392   6     A
+C14    C3      1.376   13_666 A
+C16    H3      0.941   14_566 S
+C16    C25     1.353   7_556 A
+C16    C12     1.390   5_564 A
+O4     C8      1.247   16_556 A
+O4     Zn1     2.041   5_565 S
+O5     C8      1.248   7_557 A
+O5     Zn1     2.031   8_666 S
+O6     C1      1.248   8_666 A
+O6     Cr1     1.963   6_655 S
+O7     N8      1.276   8_666 A
+Zn1    N1      2.018   .     S
+Zn1    O5      2.031   8_566 S
+Zn1    O5      2.031   14_566 S
+Zn1    O4      2.041   6_654 S
+Zn1    O4      2.041   24_654 S
+H1     C51     0.939   .     S
+C51    C3      1.373   21    A
+C51    C3      1.373   3_665 A
+N1     C12     1.310   9_666 A
+N1     C12     1.310   15_556 A
+Cr1    O36     1.910   .     S
+Cr1    O6      1.963   5_564 S
+Cr1    O6      1.963   7_556 S
+Cr1    O6      1.963   14_566 S
+Cr1    O6      1.963   22_554 S
+C1     C25     1.512   7_556 S
+C1     O6      1.248   15_556 A
+C1     O6      1.248   8_566 A
+N8     C35     1.519   9_666 S
+N8     O7      1.276   8_566 A
+N8     O7      1.276   15_556 A
+C25    C1      1.512   7_556 S
+C25    C16     1.353   7_556 A
+C25    C16     1.353   15_656 A
+C35    C14     1.392   22_554 A
+C35    C14     1.392   5_554 A
+C35    N8      1.519   9_656 S
+O36    Cr1     1.910   2_665 S
+O36    Cr1     1.910   3_565 S

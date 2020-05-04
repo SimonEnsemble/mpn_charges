@@ -1,0 +1,52 @@
+data_image0
+_cell_length_a       4.9755
+_cell_length_b       11.9897
+_cell_length_c       8.1805
+_cell_angle_alpha    90
+_cell_angle_beta     92.416
+_cell_angle_gamma    90
+
+_symmetry_space_group_name_H-M    "P 1"
+_symmetry_int_tables_number       1
+
+loop_
+  _symmetry_equiv_pos_as_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_label
+  _atom_site_occupancy
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_thermal_displace_type
+  _atom_site_B_iso_or_equiv
+  _atom_site_type_symbol
+  P1       1.0000 0.00880  0.48500  0.23300  Biso   1.000  P
+  O1       1.0000 0.72060  0.52060  0.19130  Biso   1.000  O
+  O2       1.0000 0.04100  0.35660  0.23370  Biso   1.000  O
+  O3       1.0000 0.20650  0.54510  0.12220  Biso   1.000  O
+  C1       1.0000 0.08900  0.53320  0.44280  Biso   1.000  C
+  F1       1.0000 0.54600  0.85160  0.95130  Biso   1.000  F
+  P2       1.0000 0.99120  0.98500  0.76700  Biso   1.000  P
+  O4       1.0000 0.27940  0.02060  0.80870  Biso   1.000  O
+  O5       1.0000 0.95900  0.85660  0.76630  Biso   1.000  O
+  O6       1.0000 0.79350  0.04510  0.87780  Biso   1.000  O
+  C2       1.0000 0.91100  0.03320  0.55720  Biso   1.000  C
+  F2       1.0000 0.45400  0.35160  0.04870  Biso   1.000  F
+  P3       1.0000 0.99120  0.51500  0.76700  Biso   1.000  P
+  O7       1.0000 0.27940  0.47940  0.80870  Biso   1.000  O
+  O8       1.0000 0.95900  0.64340  0.76630  Biso   1.000  O
+  O9       1.0000 0.79350  0.45490  0.87780  Biso   1.000  O
+  C3       1.0000 0.91100  0.46680  0.55720  Biso   1.000  C
+  F3       1.0000 0.45400  0.14840  0.04870  Biso   1.000  F
+  P4       1.0000 0.00880  0.01500  0.23300  Biso   1.000  P
+  O10      1.0000 0.72060  0.97940  0.19130  Biso   1.000  O
+  O11      1.0000 0.04100  0.14340  0.23370  Biso   1.000  O
+  O12      1.0000 0.20650  0.95490  0.12220  Biso   1.000  O
+  C4       1.0000 0.08900  0.96680  0.44280  Biso   1.000  C
+  F4       1.0000 0.54600  0.64840  0.95130  Biso   1.000  F
+  Al1      1.0000 0.75320  0.75000  0.85620  Biso   1.000  Al
+  Al2      1.0000 0.24680  0.25000  0.14380  Biso   1.000  Al
+  Al3      1.0000 0.50000  0.50000  0.00000  Biso   1.000  Al
+  Al4      1.0000 0.50000  0.00000  0.00000  Biso   1.000  Al

@@ -1,0 +1,54 @@
+data_LULJAE_clean
+_audit_creation_date              2014-07-02
+_audit_creation_method            'Materials Studio'
+_symmetry_space_group_name_H-M    'P1'
+_symmetry_Int_Tables_number       1
+_symmetry_cell_setting            triclinic
+loop_
+_symmetry_equiv_pos_as_xyz
+  x,y,z
+_cell_length_a                    7.0368
+_cell_length_b                    8.2160
+_cell_length_c                    10.4897
+_cell_angle_alpha                 108.8590
+_cell_angle_beta                  109.5980
+_cell_angle_gamma                 90.0000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Co1    Co    0.00000   0.00000   0.50000   0.01267  Uiso   1.00
+Co2    Co    0.50000   0.50000   0.50000   0.01267  Uiso   1.00
+H1     H     0.05630   0.01300   0.80660   0.01267  Uiso   1.00
+H2     H     0.82600   0.86900   0.92600   0.01267  Uiso   1.00
+H3     H     0.24970   0.48700   0.19340   0.01267  Uiso   1.00
+H4     H     0.90000   0.63100   0.07400   0.01267  Uiso   1.00
+H5     H     0.94370   0.98700   0.19340   0.01267  Uiso   1.00
+H6     H     0.17400   0.13100   0.07400   0.01267  Uiso   1.00
+H7     H     0.75030   0.51300   0.80660   0.01267  Uiso   1.00
+H8     H     0.10000   0.36900   0.92600   0.01267  Uiso   1.00
+C1     C     0.81567   0.82004   0.66434   0.01267  Uiso   1.00
+C2     C     0.95257   0.93978   0.80674   0.01267  Uiso   1.00
+C3     C     0.93478   0.94283   0.92976   0.01267  Uiso   1.00
+C4     C     0.15133   0.67996   0.33566   0.01267  Uiso   1.00
+C5     C     0.14583   0.56022   0.19326   0.01267  Uiso   1.00
+C6     C     0.00502   0.55717   0.07024   0.01267  Uiso   1.00
+C7     C     0.18433   0.17996   0.33566   0.01267  Uiso   1.00
+C8     C     0.04743   0.06022   0.19326   0.01267  Uiso   1.00
+C9     C     0.06522   0.05717   0.07024   0.01267  Uiso   1.00
+C10    C     0.84867   0.32004   0.66434   0.01267  Uiso   1.00
+C11    C     0.85417   0.43978   0.80674   0.01267  Uiso   1.00
+C12    C     0.99498   0.44283   0.92976   0.01267  Uiso   1.00
+O1     O     0.84128   0.82725   0.55222   0.01267  Uiso   1.00
+O2     O     0.68230   0.71660   0.66218   0.01267  Uiso   1.00
+O3     O     0.28906   0.67275   0.44778   0.01267  Uiso   1.00
+O4     O     0.02012   0.78340   0.33782   0.01267  Uiso   1.00
+O5     O     0.15872   0.17275   0.44778   0.01267  Uiso   1.00
+O6     O     0.31770   0.28340   0.33782   0.01267  Uiso   1.00
+O7     O     0.71094   0.32725   0.55222   0.01267  Uiso   1.00
+O8     O     0.97988   0.21660   0.66218   0.01267  Uiso   1.00

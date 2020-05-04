@@ -1,0 +1,49 @@
+data_image0
+_cell_length_a       7.0962
+_cell_length_b       12.4549
+_cell_length_c       13.158
+_cell_angle_alpha    68.16
+_cell_angle_beta     83.115
+_cell_angle_gamma    81.834
+
+_symmetry_space_group_name_H-M    "P 1"
+_symmetry_int_tables_number       1
+
+loop_
+  _symmetry_equiv_pos_as_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_label
+  _atom_site_occupancy
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_thermal_displace_type
+  _atom_site_B_iso_or_equiv
+  _atom_site_type_symbol
+  Cu1      1.0000 0.31771  0.97902  0.25108  Biso   1.000  Cu
+  Cu2      1.0000 0.48033  0.36916  0.19657  Biso   1.000  Cu
+  Cu3      1.0000 0.68601  0.93300  0.16225  Biso   1.000  Cu
+  Br1      1.0000 0.51204  0.79144  0.33805  Biso   1.000  Br
+  C1       1.0000 0.50470  0.44820  0.38730  Biso   1.000  C
+  C2       1.0000 0.44880  0.21140  0.22690  Biso   1.000  C
+  C3       1.0000 0.07720  0.95060  0.22330  Biso   1.000  C
+  C4       1.0000 0.53780  0.98310  0.03750  Biso   1.000  C
+  C5       1.0000 0.49310  0.47150  0.04450  Biso   1.000  C
+  N1       1.0000 0.49550  0.41870  0.31550  Biso   1.000  N
+  N2       1.0000 0.41220  0.12230  0.23790  Biso   1.000  N
+  N3       1.0000 0.93150  0.94190  0.20200  Biso   1.000  N
+  N4       1.0000 0.46220  0.01690  0.96250  Biso   1.000  N
+  N5       1.0000 0.50690  0.52850  0.95550  Biso   1.000  N
+  Cu4      1.0000 0.68229  0.02098  0.74892  Biso   1.000  Cu
+  Cu5      1.0000 0.51967  0.63084  0.80343  Biso   1.000  Cu
+  Cu6      1.0000 0.31399  0.06700  0.83775  Biso   1.000  Cu
+  Br2      1.0000 0.48796  0.20856  0.66195  Biso   1.000  Br
+  C6       1.0000 0.49530  0.55180  0.61270  Biso   1.000  C
+  C7       1.0000 0.55120  0.78860  0.77310  Biso   1.000  C
+  C8       1.0000 0.92280  0.04940  0.77670  Biso   1.000  C
+  N6       1.0000 0.50450  0.58130  0.68450  Biso   1.000  N
+  N7       1.0000 0.58780  0.87770  0.76210  Biso   1.000  N
+  N8       1.0000 0.06850  0.05810  0.79800  Biso   1.000  N
+  Cu7      1.0000 0.50000  0.50000  0.50000  Biso   1.000  Cu

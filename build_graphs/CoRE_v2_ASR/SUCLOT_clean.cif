@@ -1,0 +1,50 @@
+data_image0
+_cell_length_a       12.4545
+_cell_length_b       10.208
+_cell_length_c       6.7013
+_cell_angle_alpha    107.47
+_cell_angle_beta     104.432
+_cell_angle_gamma    66.761
+
+_symmetry_space_group_name_H-M    "P 1"
+_symmetry_int_tables_number       1
+
+loop_
+  _symmetry_equiv_pos_as_xyz
+  'x, y, z'
+
+loop_
+  _atom_site_label
+  _atom_site_occupancy
+  _atom_site_fract_x
+  _atom_site_fract_y
+  _atom_site_fract_z
+  _atom_site_thermal_displace_type
+  _atom_site_B_iso_or_equiv
+  _atom_site_type_symbol
+  Ca1      1.0000 0.44420  0.10940  0.77150  Biso   1.000  Ca
+  O1       1.0000 0.25870  0.08910  0.50140  Biso   1.000  O
+  O2       1.0000 0.52440  0.84480  0.84520  Biso   1.000  O
+  O3       1.0000 0.26210  0.07830  0.81980  Biso   1.000  O
+  O4       1.0000 0.50970  0.85900  0.53980  Biso   1.000  O
+  C1       1.0000 0.51300  0.78610  0.65670  Biso   1.000  C
+  C2       1.0000 0.22020  0.05840  0.62920  Biso   1.000  C
+  C3       1.0000 0.10990  0.03750  0.56430  Biso   1.000  C
+  C4       1.0000 0.51450  0.63630  0.57790  Biso   1.000  C
+  C5       1.0000 0.93100  0.01910  0.64760  Biso   1.000  C
+  C6       1.0000 0.53980  0.54920  0.71880  Biso   1.000  C
+  C7       1.0000 0.04820  0.04070  0.71830  Biso   1.000  C
+  C8       1.0000 0.53880  0.40150  0.64090  Biso   1.000  C
+  Ca2      1.0000 0.55580  0.89060  0.22850  Biso   1.000  Ca
+  O5       1.0000 0.74130  0.91090  0.49860  Biso   1.000  O
+  O6       1.0000 0.47560  0.15520  0.15480  Biso   1.000  O
+  O7       1.0000 0.73790  0.92170  0.18020  Biso   1.000  O
+  O8       1.0000 0.49030  0.14100  0.46020  Biso   1.000  O
+  C9       1.0000 0.48700  0.21390  0.34330  Biso   1.000  C
+  C10      1.0000 0.77980  0.94160  0.37080  Biso   1.000  C
+  C11      1.0000 0.89010  0.96250  0.43570  Biso   1.000  C
+  C12      1.0000 0.48550  0.36370  0.42210  Biso   1.000  C
+  C13      1.0000 0.06900  0.98090  0.35240  Biso   1.000  C
+  C14      1.0000 0.46020  0.45080  0.28120  Biso   1.000  C
+  C15      1.0000 0.95180  0.95930  0.28170  Biso   1.000  C
+  C16      1.0000 0.46120  0.59850  0.35910  Biso   1.000  C
