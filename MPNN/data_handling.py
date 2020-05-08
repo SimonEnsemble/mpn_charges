@@ -84,9 +84,9 @@ def data_handling(graphs_folder, READ_LABELS = True):
 		edges = [edge_in, edge_out]
 		edges = np.asarray(edges)
 
-		x = torch.tensor(node_features, dtype=torch.float)
+		x = torch.tensor(node_features, dtype=torch.double)
 		if (READ_LABELS):
-			y = torch.tensor(labels, dtype=torch.float)
+			y = torch.tensor(labels, dtype=torch.double)
 		edge_index = torch.tensor(edges, dtype=torch.long)
 		#     print("X.size: {}, y.size: {}, edge_index.size: {}".format(x.size(), y.size(), edge_index.size()))
 		if (READ_LABELS):

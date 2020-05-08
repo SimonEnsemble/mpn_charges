@@ -35,13 +35,12 @@ import csv
 print("----------------------------------------------")
 print(">>> loading parameters")
 
-# GRAPHS_LOCATION = "../build_graphs/graphs"
 GRAPHS_LOCATION = "input"
-ONE_HOT_ENCODING_CSV = "../atom_to_int.csv"
+ONE_HOT_ENCODING_CSV = "atom_to_int.csv"
 TRAINING_SET_CUT = 70  # percentage
 VALIDATION_SET_CUT = 10  # percentage
 # remaining is test set
-MAX_EPOCHS = 13
+MAX_EPOCHS = 3000
 BATCH_SIZE = 32
 MAX_ITERATIONS = 1
 
@@ -49,6 +48,7 @@ GNN_LAYERS = 4
 EMBEDDING_SIZE = 10
 HIDDEN_FEATURES_SIZE = 30
 
+device = torch.device('cuda')
 # crit = torch.nn.MSELoss()
 crit = torch.nn.L1Loss()
 
@@ -57,7 +57,6 @@ systems = ['mean_cor', 'gaussian_cor']
 
 hfont = {'fontname': 'DejaVu Sans'}
 fontsize_label_legend = 24
-
 if not (os.path.exists("results/")):
     os.mkdir('results/')
 if not (os.path.exists('results/graphs')):
@@ -76,15 +75,9 @@ data_list = data_handling(GRAPHS_LOCATION, READ_LABELS = True)
 print("...done")
 print("----------------------------------------------")
 print()
-
-# dividing data into testing and training
 NUM_NODE_FEATURES = data_list[0]['x'].shape[1]
 
-device = torch.device('cuda')
-# crit = torch.nn.MSELoss()
-crit = torch.nn.L1Loss()
-
-
+# dividing data into testing and training
 
 
 print(">>> reading one-hot encoding")
@@ -152,7 +145,8 @@ print("validation crystals: {}".format(valid_data_size))
 print("testing crystals: {}".format(test_data_size))
 
 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE)
-valid_loader = DataLoader(valid_dataset, batch_size=BATCH_SIZE)
+# valid_loader = DataLoader(valid_dataset, batch_size=BATCH_SIZE)
+valid_loader = DataLoader(valid_dataset, batch_size=len(valid_dataset))
 test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 
 # -----------------------------------------------
@@ -225,7 +219,7 @@ for data in loader:
     plt.gca().xaxis.grid(True, color='gray', linestyle='--', alpha=0.3, zorder=0)
     plt.tick_params(axis='both', which='major', labelsize=15)
     plt.tight_layout()
-    plt.savefig('results/graphs/dataset_element_distribution.png', format='png', dpi=300, bbox_inches="tight")
+    plt.savefig('graphs/dataset_element_distribution.png', format='png', dpi=300, bbox_inches="tight")
     plt.show()
     # %-----------------------------------------------------------------------
 
@@ -257,7 +251,7 @@ for data in loader:
     plt.gca().yaxis.grid(True, color='gray', linestyle='--', alpha=0.3, zorder=0)
     plt.tick_params(axis='both', which='major', labelsize=15)
     plt.tight_layout()
-    plt.savefig('results/graphs/dataset_charge_violinplot.png', format='png', dpi=300, bbox_inches="tight")
+    plt.savefig('graphs/violinplot.png', format='png', dpi=300, bbox_inches="tight")
     plt.show()
 
 # systems = ['vanilla', 'soft_con', 'mean_cor', 'gaussian_cor']
@@ -268,16 +262,20 @@ for system in systems:
     model = charge_prediction_system(train_loader, valid_loader,NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE,train_data_size, valid_data_size, MAX_EPOCHS, iteration, system, crit)
     models.append(model)
 
+
 # saving and loading of models for testing purposes
 # torch.save(models, './deployment/models.pt')
 # torch.save(models, 'models.pt')
+# torch.save(test_dataset, 'test_dataset.pt')
 # models = torch.load('./models.pt')
+# test_dataset = torch.load('./test_dataset.pt')
 
 
+iteration = 0
 # for testing and results
 
-dataa = train_dataset
-# dataa = test_dataset
+# dataa = train_dataset
+dataa = test_dataset
 # dataa = valid_dataset
 # dataa = data_list
 loader = DataLoader(dataa, batch_size=len(dataa))
@@ -398,28 +396,108 @@ with torch.no_grad():
             # -------------------------------------------------------------------
             # hexbin for different systems
 
-            cmaps = ['Greens', 'Blues', 'Reds']
+            #             cmaps = ['Greens','Blues','Reds']
+            cmaps = ['cividis', 'viridis', 'Reds']
             fig = plt.figure(figsize=(10, 8), dpi=80)
             hb = plt.hexbin(label.cpu().numpy(), pred.cpu().numpy(), gridsize=150, cmap=cmaps[index], mincnt=1,
                             bins='log')
             cb = fig.colorbar(hb)
             cb.ax.tick_params(labelsize=17)
             cb.set_label('# atoms', size=fontsize_label_legend)
-            x = np.linspace(-1.4, 2.4, 100)
+            x = np.linspace(-4, 4, 100)
             y = x
-            plt.plot(x, y, ':r', label='y=x')
-            plt.xlabel('True charge ' + r'$(q_v)$', fontsize=fontsize_label_legend, **hfont)
-            plt.ylabel('Predicated  charge ' + r'$(\hat{q}_v)$', fontsize=fontsize_label_legend, **hfont)
+            plt.plot(x, y, ':r', label='y=x', linewidth=2.5)
+            plt.xlabel('Ground truth - DDEC charge ' + r'$(q_v)$', fontsize=fontsize_label_legend, **hfont)
+            plt.ylabel('Predicted  charge ' + r'$(\hat{q}_v)$', fontsize=fontsize_label_legend, **hfont)
             #             plt.legend(frameon=False, prop={"family":"Times New Roman", 'size': fontsize_label_legend})
+            plt.xticks(np.arange(-2, 3, 1))
+            plt.yticks(np.arange(-2, 3, 1))
+            plt.ylim((-2, 3))
+            plt.xlim((-2, 3))
             plt.tick_params(axis='both', which='major', labelsize=17)
-            plt.ylim((-1.5, 2.5))
-            plt.xlim((-1.5, 2.5))
             plt.text(x=-1.2, y=2.2, s="MAD = {:.3f}".format(loss.item()), fontdict=dict(fontsize=fontsize_label_legend),
                      color='black', va='top', ha='left')
             #             plt.legend('MAD', frameon = False )
             plt.savefig('results/graphs/hexbin_' + system + '.png', format='png', dpi=300, bbox_inches="tight")
             plt.show()
             # -------------------------------------------------------------------
+
+            # -------------------------------------------------------------------
+            plt.figure(figsize=(8, 8), dpi=80)
+            uncorrected_sum_charg = ts.scatter_add(uncorrected_mu, data.batch, dim=0)
+            plt.hist(uncorrected_sum_charg.cpu().numpy(), bins='auto', label=system)
+            plt.title("Histogram of $\sum uncorrected charge$ for {}".format(system))
+            plt.legend(frameon=False)
+            plt.show()
+
+            # -------------------------------------------------------------------
+            # diving it by number of nodes
+            plt.figure(figsize=(8, 8), dpi=80)
+            uncorrected_sum_charg = ts.scatter_mean(uncorrected_mu, data.batch, dim=0)
+            nodes_mofs = ts.scatter_mean(uncorrected_mu, data.batch, dim=0)
+            if system == 'gaussian_cor':
+                ccolor = 'dodgerblue'
+            else:
+                ccolor = 'green'
+            sstd = np.std(uncorrected_sum_charg.cpu().numpy())
+            plt.hist(uncorrected_sum_charg.cpu().numpy(), bins='auto', label='std = {:.3f}'.format(sstd), color=ccolor)
+            plt.xlabel(r'$\frac{1}{n_v}\sum$' + '\u03D9' + r'$_u$', fontsize=fontsize_label_legend, **hfont)
+            plt.ylabel('# MOFs', fontsize=fontsize_label_legend, **hfont)
+            #             plt.title("Uniform distribution of excess preliminary charge", fontsize=fontsize_label_legend, **hfont)
+
+            plt.text(x=min(uncorrected_sum_charg.cpu().numpy()), y=65, s="std = {:.3f}".format(sstd),
+                     fontdict=dict(fontsize=fontsize_label_legend), color='black', va='top', ha='left')
+            plt.tick_params(axis='both', which='major', labelsize=17)
+            #             plt.tight_layout()
+
+            #             plt.legend(frameon=False, prop={"family":"DejaVu Sans", 'size': fontsize_label_legend})
+            plt.savefig('results/graphs/hist_excess_charge_{}.png'.format(system), format='png', dpi=300,
+                        bbox_inches="tight")
+            plt.show()
+            # -------------------------------------------------------------------
+            plt.figure(figsize=(8, 8), dpi=80)
+            uncorrected_sum_charg = ts.scatter_add(pred, data.batch, dim=0)
+            plt.hist(uncorrected_sum_charg.cpu().numpy(), bins='auto', label=system)
+            plt.title("Histogram of $\sum corrected charges$ for {}".format(system))
+            plt.legend(frameon=False)
+            plt.show()
+
+            # scatter plot of q vs mu
+            #       pred
+            #       uncorrected_mu
+            fig = plt.figure(figsize=(8, 8), dpi=80)
+            hb = plt.hexbin(pred.cpu().numpy(), uncorrected_mu.cpu().numpy(), gridsize=150, cmap='Reds', mincnt=1,
+                            bins='log')
+            cb = fig.colorbar(hb)
+            cb.ax.tick_params(labelsize=17)
+            #                 cb.set_label('Gaussian Correction')
+
+            x = np.linspace(-1.4, 2.6, 100)
+            y = x
+            plt.plot(x, y, ':r', label='y=x', linewidth=2.5)
+            plt.xlabel('Predicted partial charge ' + r'$(\widehat{q_v} )$', fontsize=fontsize_label_legend, **hfont)
+            plt.ylabel('Uncorrected partial charge ' + r'$(\tilde{q}_v)$', fontsize=fontsize_label_legend, **hfont)
+            #                 plt.gca().xaxis.grid(True,color='gray', linestyle='--', alpha=0.3, zorder=0)
+            plt.tick_params(axis='both', which='major', labelsize=17)
+            plt.tight_layout()
+            plt.show()
+
+            fig = plt.figure(figsize=(8, 8), dpi=80)
+            hb = plt.hexbin(label.cpu().numpy(), uncorrected_mu.cpu().numpy(), gridsize=150, cmap='Reds', mincnt=1,
+                            bins='log')
+            cb = fig.colorbar(hb)
+            cb.ax.tick_params(labelsize=17)
+            #                 cb.set_label('Gaussian Correction')
+
+            x = np.linspace(-1.4, 2.6, 100)
+            y = x
+            plt.plot(x, y, ':r', label='y=x', linewidth=2.5)
+            plt.xlabel('ground truth ' + r'$({q_v} )$', fontsize=fontsize_label_legend, **hfont)
+            plt.ylabel('Uncorrected partial charge ' + r'$(\tilde{q}_v)$', fontsize=fontsize_label_legend, **hfont)
+            #                 plt.gca().xaxis.grid(True,color='gray', linestyle='--', alpha=0.3, zorder=0)
+            plt.tick_params(axis='both', which='major', labelsize=17)
+            plt.tight_layout()
+            plt.show()
 
             if system == 'gaussian_cor':
 
@@ -771,7 +849,10 @@ with torch.no_grad():
             #             plt.figure(figsize=(30,10))
             # ==================================================
             # saving embeddings
-            np.save("results/embedding/embedding_{}".format(system), embedding_all)
+            if (FLAG_SAVE_EMBEDDING):
+                np.save("results/embedding/embedding_{}".format(system), embedding_all)
+
+                # ARNI please put your
             # ==================================================
             # visualize embedding of elements
 

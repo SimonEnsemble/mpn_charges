@@ -18,7 +18,7 @@ __email__ = "razaa@oregonstate.edu"
 __status__ = "done"
 
 from data_handling import *
-# from model_embedding import *
+from model import *
 # from charge_prediction_system_L1_embedding import *
 from torch_geometric.data import Data, DataLoader
 import torch
@@ -34,15 +34,17 @@ import seaborn as sns
 import csv
 
 
-# deployment_graphs = "deployment_graphs_v2"
-deployment_graphs = "deployment_graphs_FSR"
+deployment_graphs = "deployment_graphs_ASR"
+# deployment_graphs = "deployment_graphs_FSR"
+deployment_graphs_location = "../build_graphs/" + deployment_graphs
+# deployment_graphs = "../build_graphs/deployment_graphs_FSR"
 hfont = {'fontname':'Times New Roman'}
 fontsize_label_legend = 24
 systems = ['mean_cor', 'gaussian_cor']
 
 print("----------------------------------------------")
 print(">>> reading files and generating data_list")
-data_list = data_handling(deployment_graphs)
+data_list = data_handling(deployment_graphs_location) #, READ_LABELS = False)
 print("...done")
 print("----------------------------------------------")
 print()
@@ -64,6 +66,11 @@ print("Total MOFs: {} ".format(len(data_list)))
 dataa = data_list
 loader = DataLoader(dataa, batch_size=len(dataa))
 
+if not (os.path.exists("results/")):
+    os.mkdir('results/')
+if not (os.path.exists("results/predictions")):
+    os.mkdir('results/predictions')
+
 print("Total MOFs: {}".format(len(dataa)))
 print("----------------------------------------------")
 print(">>>Getting encoding information")
@@ -76,24 +83,24 @@ with open('../atom_to_int.csv') as csvfile:
         element_types.append(row[0])
         one_hot_encoding.append(int(row[1]))
 
-    print(element_types)
-    print(one_hot_encoding)
+    #     print(element_types)
+    #     print(one_hot_encoding)
     # sorting them
-    print(">> Sorting them")
+    #     print(">> Sorting them")
 
     indices_sorted_elements = np.argsort(one_hot_encoding)
     element_types = np.array(element_types)[indices_sorted_elements]
     one_hot_encoding = np.array(one_hot_encoding)[indices_sorted_elements]
-    print("sorting them")
-    print(element_types)
-    print(one_hot_encoding)
+#     print("sorting them")
+#     print(element_types)
+#     print(one_hot_encoding)
 print("----------------------------------------------")
 for data in loader:
     data = data.to(device)
     features = data.x.to(device)
 
     print("Total nodes: {}".format(features.size()[0]))
-    print("Features.size(): {}".format(features.size()))
+    #         print("Features.size(): {}".format(features.size()))
 
     elements_number = len(features[0])
     total_instances_all = np.zeros(elements_number)
@@ -110,7 +117,7 @@ for data in loader:
         total_instances_all[element_index] = indices.sum()  # number of atoms in datasets
         total_instances_mof_all[element_index] = len(
             set(data.batch[indices].cpu().numpy()))  # number of mofs containing that element
-    print("Total Nodes (after summing): {}".format(total_atoms))
+    #         print("Total Nodes (after summing): {}".format(total_atoms))
 
     # indices of sorted element
 
@@ -156,7 +163,7 @@ for data in loader:
 # loading models
 # systems = ['mean_cor', 'gaussian_cor']
 systems = ['mean_cor', 'gaussian_cor']
-models = torch.load('./models.pt')
+models = torch.load('./models_deployment.pt')
 
 if not (os.path.exists("results/predictions/" + deployment_graphs)):
     os.mkdir('results/predictions/' + deployment_graphs)
@@ -168,21 +175,60 @@ crystals_names = np.load("crystals_name.npy")
 
 print()
 print()
-
+sum_charge_all = []
+graphs_nodes = []
+graphs_nodes_high_sum = []
+graphs_nodes_low_sum = []
 with torch.no_grad():
     index_mof = 0
     for data in loader:
         data = data.to(device)
+        data.x = data.x.type(torch.DoubleTensor).to(device)
         features = data.x.to(device)
 
         for index, system in enumerate(systems):
             model = models[index]
             model.eval()
             pred, embedding, sigmas, uncorrected_mu = model(data)
+            # -------- debugging
+            #             pred = uncorrected_mu - np.mean(uncorrected_mu.cpu().numpy()) # only mof with 10560 nodes gets sum 0.0014
+            #             pred = uncorrected_mu - torch.mean(uncorrected_mu)  # only one mof with 2924 nodes get sum 0.0018
+            #             pred = uncorrected_mu - torch.sum(uncorrected_mu)*(sigmas/torch.sum(sigmas)) # three mofs with 10560 nodes(why same??) gets high sum0.0022
+            #             # now
+            #             mu_all = ts.scatter_add(uncorrected_mu, data.batch, dim=0)
+            #             sigma_all = ts.scatter_add(sigmas, data.batch, dim=0)
+
+            #             for i in range(0, data.num_graphs):
+            #                 uncorrected_mu[data.batch == i] = uncorrected_mu[data.batch == i] - mu_all[i] * (sigmas[data.batch == i] / sigma_all[i])
+            #             pred = uncorrected_mu
+            #             pred = pred.type(torch.DoubleTensor)
+            #             pred = pred.cuda()
+            sum_charge = ts.scatter_add(pred, data.batch, dim=0)
+            sum_charge_all.append(sum_charge.cpu().numpy())
+            #             sum_charge = np.sum(pred.cpu().numpy())
+            #             sum_charge_all.append( np.absolute(sum_charge) )
+            graphs_nodes.append(len(pred))
+            if np.absolute(sum_charge.cpu()) > 0.001:
+                #                 np.save('uncorrected_mu.npy',uncorrected_mu.cpu().numpy() )
+                print('nodes in MOF with high sum charge {}: '.format(np.absolute(sum_charge.cpu())), len(pred))
+                graphs_nodes_high_sum.append(len(pred))
+            if np.absolute(sum_charge.cpu()) < 0.000001:
+                graphs_nodes_low_sum.append(len(pred))
+            # -----------------
+
+            #             plt.figure(figsize=(8,8), dpi= 80)
+            #             plt.hist(sum_charge.cpu(), bins=10)
+            #             plt.show()
+            #             for i in (np.absolute(sum_charge.cpu()).sort()[0]):
+            #                 print('{}'.format(i ))
             np.save(
                 "results/predictions/{}/{}_{}_predictions".format(deployment_graphs, crystals_names[index_mof], system),
                 pred.cpu().numpy())
         index_mof += 1
         if index_mof % 100 == 0:
             print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
+print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
+
+print('max: sum_charge: ', max(sum_charge_all))
+print('min: sum_charge: ', min(sum_charge_all))
 

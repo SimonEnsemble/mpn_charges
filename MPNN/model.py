@@ -70,10 +70,11 @@ class Net_mean_correction(torch.nn.Module):
         x = self.conv1(x1, edge_index) 
         x = F.relu(x)
         x = self.lin1(x)
+        uncorrected_mu = x.clone()
         mean_all = ts.scatter_mean(x, data.batch, dim=0)
         for i in range(0,data.num_graphs):
             x[data.batch==i] = x[data.batch==i]- mean_all[i]
-        return x.squeeze(1), x1.squeeze(1), None, None
+        return x.squeeze(1), x1.squeeze(1), None, uncorrected_mu.squeeze(1)
 
 
 class Net_gaussian_correction(torch.nn.Module):

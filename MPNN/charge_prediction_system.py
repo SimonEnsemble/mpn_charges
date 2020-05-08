@@ -44,7 +44,7 @@ def charge_prediction_system(train_loader, valid_loader,NUM_NODE_FEATURES,EMBEDD
 		model = Net_gaussian_correction(NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE).to(device)
 
 	optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
-
+	model = model.double()
 
 	train_total_loss = []
 	valid_total_loss = []
@@ -112,9 +112,9 @@ def charge_prediction_system(train_loader, valid_loader,NUM_NODE_FEATURES,EMBEDD
 			print('Epoch: {:03d}, Loss: {:.5f}, train_loss: {:.5f}, valid_loss: {:.5f}'.
 			  format(epoch+1, loss_epoch, train_acc, valid_acc))
 
-		if rebound > 5: # early stopping criterion
-# 			break
-			pass
+		if rebound > 100: # early stopping criterion
+			break
+# 			pass
 
 	hfont = {'fontname':'DejaVu Sans'}
 	fontsize_label_legend = 24
