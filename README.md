@@ -43,8 +43,8 @@ predicting charges on MOFs via a message passing network.
 │           └── deployment_graphs_FSR                   # - for CoRE_v2_FSR
 │
 └── Charge_Assigned_CoRE_MOFs                           # CoRE v2 structures with MPNN charges assigned to them
-│   ├── MPNN_CoRE-ASR.tar.gz                            # - CoRE v2 ASR (All Solvents Removed) structures with MPNN charges
-│   └── MPNN_CoRE-FSR.tar.gz                            # - CoRE v2 FSR (Free Solvents Removed) structures with MPNN charges
+    ├── MPNN_CoRE-ASR.tar.gz                            # - CoRE v2 ASR (All Solvents Removed) structures with MPNN charges
+    └── MPNN_CoRE-FSR.tar.gz                            # - CoRE v2 FSR (Free Solvents Removed) structures with MPNN charges
 ```
 
 {1}
