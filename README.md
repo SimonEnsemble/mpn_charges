@@ -8,7 +8,7 @@ predicting charges on MOFs via a message passing network.
 # Structure of repository
 ```
 .
-├── ...
+├── ..
 ├── build_graphs                                        # Directory containing notebooks and information regarding the graph creation process
 │   ├── 'Construct graphs representing the MOF.ipynb'   # Notebook where MOFs are used to create corresponding graph and graph features
 │   ├── ddec_xtals                                      # Crystal structures with DDEC charges assigned to them{1}
