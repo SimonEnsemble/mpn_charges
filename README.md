@@ -1,9 +1,9 @@
-# Message passing neural networks for partialcharge assignment in metal-organic frameworks
+# Message Passing Neural Networks for Partial Charge Assignment to Metal-Organic Frameworks
 
 Jupyter Notebook to produce data for:
 
-> A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partialcharge assignment in metal-organic frameworks
-predicting charges on MOFs via a message passing network.
+> A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.
+
 
 # Structure of repository
 ```
