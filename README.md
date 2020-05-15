@@ -20,23 +20,23 @@ Jupyter Notebook to produce data for:
 │   └── Bonds.jl                                        # Bond generation code. Utilized in graph creation notebook
 │
 ├── MPNN                                                # Directory containing the Message Passing Neural Network (MPNN) code and results
-│   ├── model.py                                        # Contains the network and GNN layer
-│   ├── charge_prediction_system.py                     # Evaluates different models
-│   ├── data_handling.py                                # Reads in graph information from [../build_graphs/graphs] and generates a data list
-│   ├── main.py                                         # Includes module for training and testing. Loads in datalist from [./data_handling.py]
+│   ├── model.py                                        # Contains the neural network model 
+│   ├── charge_prediction_system.py                     # For training the model
+│   ├── data_handling.py                                # Reads in graphs from [../build_graphs/graphs] and  returns a datalist
+│   ├── main.py                                         # Loads in datalist from [./data_handling.py]. Split it into training, validation and testing dataset. Uses [./charge_prediction_system] for training the model [./model.py] and tests it
 │   ├── main.ipynb                                      # Notebook for main.py
 │   └── results                                         # Contains results from the MPNN
 │       ├── embedding                                   # Element embedding from the MPNN
-│       └── results                                     # Results from the MPNN
+│       └── graphs                                     # Different graphs related to training and testing
 │
 ├── embedding_visualization                             # Element Embedding visualizations
 │   └── Embedding_Visualization.ipynb                   # Notebook for element embedding visualization. Utilizes UMAP, t-SNE and PCA
 │
 ├── deployment                                          # Code for deployment dataset, where MPNN charges are assigned to the CoRE v2{2} dataset
 │   ├── data_handling.py                                # Reads in graph information from [../build_graphs/deployment_graphs[A/F]SR] and generates a data list
-│   ├── deployment_main.py                              # Main file for charge predictions for deployment sets.
+│   ├── deployment_main.py                              # Main file for reading the graphs, loading the model and generating charge predictions for deployment sets
 │   ├── deployment_main.ipynb                           # Notebook for deployment_main.py
-│   ├── model_embedding.py                              # ?
+│   ├── model.py                                        # Required by [./deployment_main.py/ipynb] to load the trained model [./models_deployment.pt]  
 │   └── results                                         # Results of charge predictions for the deployment sets
 │       └── predictions                                 # Charge predictions
 │           ├── deployment_graphs_ASR                   # - for CoRE_v2_ASR
