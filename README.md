@@ -2,8 +2,7 @@
 
 Jupyter Notebook to produce data for:
 
-> A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.
-
+[A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.](https://chemrxiv.org/articles/Message_Passing_Neural_Networks_for_Partial_Charge_Assignment_to_Metal-Organic_Frameworks/12298487)
 
 # Structure of repository
 ```
