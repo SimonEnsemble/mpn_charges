@@ -38,7 +38,7 @@ parser.add_argument("graph_name", help="string of crystal name")
 args = parser.parse_args()
 deployment_graphs = args.graphs_directory
 graph_name = args.graph_name
-print('\n>>> will search <{}> for graphs'.format(deployment_graphs))
+print('\n>>> will search <{}> for graph <{}>'.format(deployment_graphs, graph_name))
 
 # ---------------------
 # Parameters
@@ -73,8 +73,8 @@ with torch.no_grad():
         np.save("{}/{}_mpnn_charges".format(deployment_graphs, graph_name), pred.cpu().numpy())
         index_mof += 1
         if index_mof % 10 == 0:
-            print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
+            print('||| Done with MOF(s): {}'.format(index_mof), end="\r", flush=True)
 print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
-print('||| Done with MOFs')
+print('||| Done with MOF(s)')
 print('results are in <{}/>'.format(deployment_graphs))
 
