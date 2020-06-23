@@ -30,8 +30,11 @@ xtal = Crystal(xtal_name)
 strip_numbers_from_atom_labels!(xtal)
 
 # define filename for edges and node features
-node_feature_filename = xtal_name * "_node_features.npy"
-edge_filename = xtal_name * ".edge_info"
+node_feature_filename = joinpath("temp", xtal_name * "_node_features.npy")
+edge_filename = joinpath("temp", xtal_name * ".edge_info")
+if ! isdir("temp")
+    mkdir("temp")
+end
 
 # read in mapping from atomic species to integer for one-hot encoding
 df = CSV.read("../atom_to_int.csv")
