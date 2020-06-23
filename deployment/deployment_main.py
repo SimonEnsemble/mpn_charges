@@ -20,7 +20,7 @@ from model import *
 from torch_geometric.data import Data, DataLoader
 import numpy as np
 import argparse
-
+import os
 # ---------------------
 # Parameters
 # ---------------------
@@ -77,3 +77,6 @@ print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
 print('||| Done with MOFs')
 print('results are in <{}/>'.format(deployment_graphs))
 
+
+# deleting temp files
+os.remove("crystals_name.npy")
