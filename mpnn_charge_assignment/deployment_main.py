@@ -33,16 +33,18 @@ hfont = {'fontname':'Times New Roman'}
 fontsize_label_legend = 24
 
 parser = argparse.ArgumentParser()
-parser.add_argument("graphs", help="string specifying the directory in ../building_graphs/ containing graphs")
+parser.add_argument("graphs_directory", help="string specifying the directory in ../building_graphs/ containing graphs")
+parser.add_argument("graph_name", help="string of crystal name")
 args = parser.parse_args()
-deployment_graphs = args.graphs
+deployment_graphs = args.graphs_directory
+graph_name = args.graph_name
 print('\n>>> will search <{}> for graphs'.format(deployment_graphs))
 
 # ---------------------
 # Parameters
 # ---------------------
 print(">>> reading files and generating data_list")
-data_list = data_handling(deployment_graphs) #, READ_LABELS = False)
+data_list = data_handling(deployment_graphs,graph_name) #, READ_LABELS = False)
 print("...done")
 print()
 print("Total MOFs: {} ".format(len(data_list)))
@@ -59,7 +61,6 @@ print('is model running on cuda? : {}'.format(next(model.parameters()).is_cuda))
 # ---------------------
 print('>>> predicting charges')
 loader = DataLoader(data_list, batch_size=1)
-crystals_names = np.load("crystals_name.npy")
 
 with torch.no_grad():
     index_mof = 0
@@ -69,7 +70,7 @@ with torch.no_grad():
         features = data.x.to(device)        
         model.eval()
         pred, embedding, sigmas, uncorrected_mu = model(data)
-        np.save("{}/{}_mpnn_charges".format(deployment_graphs, crystals_names[index_mof]), pred.cpu().numpy())
+        np.save("{}/{}_mpnn_charges".format(deployment_graphs, graph_name), pred.cpu().numpy())
         index_mof += 1
         if index_mof % 10 == 0:
             print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
@@ -77,6 +78,3 @@ print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
 print('||| Done with MOFs')
 print('results are in <{}/>'.format(deployment_graphs))
 
-
-# deleting temp files
-os.remove("crystals_name.npy")
