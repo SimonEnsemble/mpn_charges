@@ -60,8 +60,9 @@ print("Total MOFs: {} ".format(len(data_list)))
 # print("Model's state_dict:")
 # for param_tensor in model.state_dict():
 #     print(param_tensor, "\t", model.state_dict()[param_tensor].size())
+#model = Net_gaussian_correction(NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE).to(device)
 model = Net_gaussian_correction(74,10,4,30).to(device)
-model.load_state_dict(torch.load('state_dict.pt', map_location="cuda:0"))  # Choose whatever GPU device number you want
+model.load_state_dict(torch.load('state_dict.pt'))  # Choose whatever GPU device number you want
 model.to(device)
 model = model.double()
 print('is model running on cuda? : {}'.format(next(model.parameters()).is_cuda))
