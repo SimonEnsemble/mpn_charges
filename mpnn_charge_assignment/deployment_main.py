@@ -41,7 +41,7 @@ graph_name = args.graph_name
 print('\n>>> will search <{}> for graph <{}>'.format(deployment_graphs, graph_name))
 
 # ---------------------
-# Parameters
+# Parameters    
 # ---------------------
 print(">>> reading files and generating data_list")
 data_list = data_handling(deployment_graphs,graph_name) #, READ_LABELS = False)
@@ -53,8 +53,17 @@ print("Total MOFs: {} ".format(len(data_list)))
 # ---------------------
 # Loading models
 # ---------------------
-models = torch.load('./models_deployment.pt',map_location=device)
-model = models[1] # [0]: mean; [1]: gaussian
+# models = torch.load('./models_deployment.pt',map_location=device)
+# model = models[1] # [0]: mean; [1]: gaussian
+# torch.save(model.state_dict(), 'state_dict.pt')
+# Print model's state_dict
+# print("Model's state_dict:")
+# for param_tensor in model.state_dict():
+#     print(param_tensor, "\t", model.state_dict()[param_tensor].size())
+model = Net_gaussian_correction(74,10,4,30).to(device)
+model.load_state_dict(torch.load('state_dict.pt', map_location="cuda:0"))  # Choose whatever GPU device number you want
+model.to(device)
+model = model.double()
 print('is model running on cuda? : {}'.format(next(model.parameters()).is_cuda))
 # ---------------------
 # Predicting charges
