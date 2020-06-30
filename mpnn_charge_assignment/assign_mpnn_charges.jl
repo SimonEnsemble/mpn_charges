@@ -87,3 +87,5 @@ for ed in edges(xtal.bonds)
     @printf(edge_file, "%d,%d,%f\n", i - 1, j - 1, r)
 end
 close(edge_file)
+mycommand = `python deployment_main.py "temp" "KAXQIL_clean.cif"`
+run(mycommand);
