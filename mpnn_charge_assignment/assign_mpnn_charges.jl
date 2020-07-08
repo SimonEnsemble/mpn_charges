@@ -87,5 +87,25 @@ for ed in edges(xtal.bonds)
     @printf(edge_file, "%d,%d,%f\n", i - 1, j - 1, r)
 end
 close(edge_file)
-mycommand = `python deployment_main.py "temp" "KAXQIL_clean.cif"`
-run(mycommand);
+
+###
+#   python code to load in MPNN model, read in edge and node feature matrix
+#   written from the script
+#   Outputs MPNN charges
+###
+run(`python deployment_main.py "temp" $xtal_name`)
+
+###
+#   Loading in the MPNN charges and assigning them to the MOF
+#   and writing the MOF to a new `.cif` file.
+###
+mpnn_charge_values = npzread(joinpath(pwd(), "temp", xtal_name * "_mpnn_charges.npy"))
+mpnn_charges = Charges(Float64.(mpnn_charge_values), xtal.atoms.coords)
+new_xtal = Crystal(xtal.name, xtal.box, xtal.atoms, mpnn_charges, xtal.bonds, xtal.symmetry)
+#remove_bonds!(new_xtal) # If you don't want bonds in the `.cif` file
+write_cif(new_xtal, joinpath(pwd(), split(xtal.name, ".")[1] * "_mpnn_charges.cif"))
+
+###
+#   Deleting the temporary folder for cleanup
+###
+run(`rm -rf temp`)
