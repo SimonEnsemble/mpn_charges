@@ -22,7 +22,7 @@ echo "making sure docker is installed"
 if [ -x "$(command -v docker)" ]; then
     : # docker is installed 
 else
-    echo "docker is not installed. install docker"
+    echo "docker is not installed. visit https://docs.docker.com/get-docker/"
     exit 1
 fi
 
