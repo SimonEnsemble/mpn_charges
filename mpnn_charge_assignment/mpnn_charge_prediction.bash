@@ -13,7 +13,7 @@
 
 # checkig if MOF name is provided
 if [ "$1" == "" ]; then
-    echo "error: provide mof name"
+    echo "error: provide mof name. for example './mpnn_charge_prediction.bash ABAVIJ_clean'"
     exit 1
 fi
 echo ""
