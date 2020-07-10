@@ -13,7 +13,8 @@
 
 # checkig if MOF name is provided
 if [ "$1" == "" ]; then
-    echo "provide mof name"
+    echo "error: provide mof name"
+    exit 1
 fi
 echo ""
 echo "making sure docker is installed"
@@ -22,12 +23,14 @@ if [ -x "$(command -v docker)" ]; then
     : # docker is installed 
 else
     echo "docker is not installed. install docker"
+    exit 1
 fi
 
 echo "making sure docker image is present"
 # making sure docker image for mpnn is present
 if [[ "$(docker images -q razaa/mpnn_charge_prediction_image 2> /dev/null)" == "" ]]; then
     echo "docker image is not available. get the latest image by command 'razaa/mpnn_charge_prediction_image:version1' "
+    exit 1
 fi
 
 # creating a container 
