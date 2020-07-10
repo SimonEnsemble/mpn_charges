@@ -4,6 +4,24 @@ Jupyter Notebook to produce data for:
 
 [A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.](https://chemrxiv.org/articles/Message_Passing_Neural_Networks_for_Partial_Charge_Assignment_to_Metal-Organic_Frameworks/12298487)
 
+## Assigning MPNN charges to a new MOF 
+We have created a [Docker](https://www.docker.com/why-docker) image to facilitate assigning MPNN charges to a new MOF. Docker provides an image-based deployment model that makes it easy to share applications with all of their dependencies across multiple environments. Docker image can fully encapsulate not just the code, but the entire dependency stack down to the hardware libraries. 
+To assign charges using our docker image, you need to first install docker:
+[https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+and downloaded our docker image by typing this command in the terminal:
+`docker pull razaa/mpnn_charge_prediction_image:version1`
+To assign charges to a MOF (mof_name.cif), make sure `/mpnn_charge_assignment/mpnn_charge_prediction.bash` and the **.cif** file are in the same directory. Use this command to assign charges:
+`./mpnn_charge_prediction.bash mof_name`
+Assigned charges are written to **mof_name__mpnn_charges.cif** file in the current directory. 
+### Troubleshooting
+- If you encounter following error
+```permission denied: ./mpnn_charge_prediction.bash```
+You need to fix permissions of the script:
+`chmod +x ./mpnn_charge_prediction.bash`
+
+
+
+
 # Structure of repository
 ```
 .
