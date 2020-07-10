@@ -29,7 +29,7 @@ fi
 echo "making sure docker image is present"
 # making sure docker image for mpnn is present
 if [[ "$(docker images -q razaa/mpnn_charge_prediction_image 2> /dev/null)" == "" ]]; then
-    echo "docker image is not available. get the latest image by command 'razaa/mpnn_charge_prediction_image:version1' "
+    echo "docker image is not available. get the latest image by command 'docker pull razaa/mpnn_charge_prediction_image:version1' "
     exit 1
 fi
 
