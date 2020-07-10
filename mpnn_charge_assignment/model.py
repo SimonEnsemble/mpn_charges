@@ -35,9 +35,9 @@ import copy
 
 class Net_vanilla(torch.nn.Module):
     def __init__(self, NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE ):
-        print("GNN_LAYERS = ", GNN_LAYERS)
-        print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
-        print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
+        # print("GNN_LAYERS = ", GNN_LAYERS)
+        # print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
+        # print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
         
         super(Net_vanilla, self).__init__()
         self.lin0 = torch.nn.Linear(NUM_NODE_FEATURES, EMBEDDING_SIZE,bias=False) # for embedding
@@ -55,9 +55,9 @@ class Net_vanilla(torch.nn.Module):
 
 class Net_mean_correction(torch.nn.Module):
     def __init__(self, NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE):
-        print("GNN_LAYERS = ", GNN_LAYERS)
-        print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
-        print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
+        # print("GNN_LAYERS = ", GNN_LAYERS)
+        # print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
+        # print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
         
         super(Net_mean_correction, self).__init__()
         self.lin0 = torch.nn.Linear(NUM_NODE_FEATURES, EMBEDDING_SIZE,bias=False) # for embedding
@@ -80,9 +80,9 @@ class Net_mean_correction(torch.nn.Module):
 
 class Net_gaussian_correction(torch.nn.Module):
     def __init__(self, NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE):
-        print("GNN_LAYERS = ", GNN_LAYERS)
-        print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
-        print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
+        # print("GNN_LAYERS = ", GNN_LAYERS)
+        # print("EMBEDDING_SIZE = ", EMBEDDING_SIZE)
+        # print("HIDDEN_FEATURES_SIZE = ", HIDDEN_FEATURES_SIZE)
         
         super(Net_gaussian_correction, self).__init__()
         self.lin0 = torch.nn.Linear(NUM_NODE_FEATURES, EMBEDDING_SIZE,bias=False) # for embedding
