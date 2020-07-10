@@ -16,7 +16,7 @@ To assign charges to a MOF (mof_name.cif), make sure `/mpnn_charge_assignment/mp
 
 Assigned charges are written to **mof_name__mpnn_charges.cif** file in the current directory.  
 ### Troubleshooting
-- If you encounter following error.  
+- If you encounter following error  
 ```permission denied: ./mpnn_charge_prediction.bash```  
 You need to fix permissions of the script:  
 `chmod +x ./mpnn_charge_prediction.bash`  
