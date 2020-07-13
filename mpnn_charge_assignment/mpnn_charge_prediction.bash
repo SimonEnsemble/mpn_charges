@@ -46,6 +46,6 @@ docker exec mpnn_charge_prediction_container /julia/julia-1.4.2/bin/julia assign
 docker cp mpnn_charge_prediction_container:/app/$1_mpnn_charges.cif .
 echo ""
 echo "removing container"
-echo "charges are stored in $1_mpnn_charges.cif"
+echo "MOF with MPNN charges is stored in $1_mpnn_charges.cif"
 docker rm  --force mpnn_charge_prediction_container > /dev/null
 # end
