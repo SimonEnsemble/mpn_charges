@@ -13,7 +13,7 @@
 
 # checkig if MOF name is provided
 if [ "$1" == "" ]; then
-    echo "error: provide mof name. for example './mpnn_charge_prediction.bash ABAVIJ_clean'"
+    echo "error: provide mof name or a directory. for example './mpnn_charge_prediction.bash ABAVIJ_clean.cif' or './mpnn_charge_prediction.bash mof_dir'"
     exit 1
 fi
 echo ""
@@ -37,15 +37,22 @@ fi
 echo "creating a container"
 docker run --name mpnn_charge_prediction_container -t -d razaa/mpnn_charge_prediction_image:version1 > /dev/null
 # copying cif file to the container 
-echo "copying $1.cif file to the container"
-docker cp $1.cif mpnn_charge_prediction_container:/app/
+echo "copying $1 to the container"
+docker cp $1 mpnn_charge_prediction_container:/app/
 # sending commands to the container to predict charges 
 echo ""
-docker exec mpnn_charge_prediction_container /julia/julia-1.4.2/bin/julia assign_mpnn_charges.jl "$1.cif"
-# copying charge file to the current directory 
-docker cp mpnn_charge_prediction_container:/app/$1_mpnn_charges.cif .
+docker exec mpnn_charge_prediction_container /julia/julia-1.4.2/bin/julia assign_mpnn_charges.jl "$1"
+# copying charge file or directory to the current directory 
+if [[ $1 == *".cif"* ]]; then
+    IFS='.' read -ra new_cif <<< "$1"
+    docker cp mpnn_charge_prediction_container:/app/${new_cif[0]}_mpnn_charges.cif .
+    echo "MOF with MPNN charges is stored as ${new_cif[0]}_mpnn_charges.cif"
+else
+    docker cp mpnn_charge_prediction_container:/app/$1 .
+    echo "MOFs with MPNN charges are stored in $1"
+fi
+
 echo ""
 echo "removing container"
-echo "MOF with MPNN charges is stored in $1_mpnn_charges.cif"
 docker rm  --force mpnn_charge_prediction_container > /dev/null
 # end
