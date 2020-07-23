@@ -11,15 +11,20 @@ To assign charges using our docker image, you need to first install docker:
 and download our docker image by typing this command in the terminal:  
 `docker pull razaa/mpnn_charge_prediction_image:version1`  
 
-To assign charges to a MOF (mof_name.cif), make sure `./mpnn_charge_assignment/mpnn_charge_prediction.bash` and the **.cif** file are in the same directory. Use this command to assign charges:  
-`./mpnn_charge_prediction.bash mof_name`  
-
+To assign charges to a single MOF (mof_name.cif), make sure `./mpnn_charge_assignment/mpnn_charge_prediction.bash` and the **.cif** file are in the same directory. Use this command to assign charges:  
+`./mpnn_charge_prediction.bash mof_name.cif`  
 Assigned charges are written to **mof_name_mpnn_charges.cif** file in the current directory.  
+
+To assign charges to multipe MOFs, make sure `./mpnn_charge_assignment/mpnn_charge_prediction.bash` and the directory containing the MOFs are in the same place. Use this command to assign charges:  
+`./mpnn_charge_prediction.bash mof_dir` 
+MOFs with MPNN charges are stored in **mof_dir**
+
 ### Troubleshooting
 - If you encounter the following error  
 ```permission denied: ./mpnn_charge_prediction.bash```  
 You need to fix permissions of the script:  
 `chmod +x ./mpnn_charge_prediction.bash`  
+- Some users reported errors while installing Docker on Windows.If your windows is not updated to the latest build, try older versions of Docker.
 
 
 
