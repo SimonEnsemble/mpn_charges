@@ -16,7 +16,7 @@ To assign charges to a single MOF (mof_name.cif), make sure `./mpnn_charge_assig
 Assigned charges are written to **mof_name_mpnn_charges.cif** file in the current directory.  
 
 To assign charges to multipe MOFs, make sure `./mpnn_charge_assignment/mpnn_charge_prediction.bash` and the directory containing the MOFs are in the same place. Use this command to assign charges:  
-`./mpnn_charge_prediction.bash mof_dir` 
+`./mpnn_charge_prediction.bash mof_dir`  
 MOFs with MPNN charges are stored in **mof_dir**
 
 ### Troubleshooting
