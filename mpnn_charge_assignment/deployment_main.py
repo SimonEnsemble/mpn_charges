@@ -38,16 +38,15 @@ parser.add_argument("graph_name", help="string of crystal name")
 args = parser.parse_args()
 deployment_graphs = args.graphs_directory
 graph_name = args.graph_name
-print('\n>>> will search <{}> for graph <{}>'.format(deployment_graphs, graph_name))
+# print('\n>>> will search <{}> for graph <{}>'.format(deployment_graphs, graph_name))
 
 # ---------------------
 # Parameters    
 # ---------------------
-print(">>> reading files and generating data_list")
+print("\treading graphs and generating data list...")
 data_list = data_handling(deployment_graphs,graph_name) #, READ_LABELS = False)
-print("...done")
-print()
-print("Total MOFs: {} ".format(len(data_list)))
+
+
 
 
 # ---------------------
@@ -62,18 +61,17 @@ print("Total MOFs: {} ".format(len(data_list)))
 #     print(param_tensor, "\t", model.state_dict()[param_tensor].size())
 #model = Net_gaussian_correction(NUM_NODE_FEATURES,EMBEDDING_SIZE,GNN_LAYERS,HIDDEN_FEATURES_SIZE).to(device)
 model = Net_gaussian_correction(74,10,4,30).to(device)
-model.load_state_dict(torch.load('state_dict.pt'))  # Choose whatever GPU device number you want
+model.load_state_dict(torch.load('state_dict.pt',map_location=torch.device('cpu')))  # Choose whatever GPU device number you want
 model.to(device)
 model = model.double()
-print('is model running on cuda? : {}'.format(next(model.parameters()).is_cuda))
+# print('is model running on cuda? : {}'.format(next(model.parameters()).is_cuda))
 # ---------------------
 # Predicting charges
 # ---------------------
-print('>>> predicting charges')
+print('\tinferring charges...')
 loader = DataLoader(data_list, batch_size=1)
 
 with torch.no_grad():
-    index_mof = 0
     for data in loader:
         data = data.to(device)       
         data.x = data.x.type(torch.DoubleTensor).to(device)      
@@ -81,10 +79,6 @@ with torch.no_grad():
         model.eval()
         pred, embedding, sigmas, uncorrected_mu = model(data)
         np.save("{}/{}_mpnn_charges".format(deployment_graphs, graph_name), pred.cpu().numpy())
-        index_mof += 1
-        if index_mof % 10 == 0:
-            print('||| Done with MOF(s): {}'.format(index_mof), end="\r", flush=True)
-print('||| Done with MOFs: {}'.format(index_mof), end="\r", flush=True)
-print('||| Done with MOF(s)')
-print('results are in <{}/>'.format(deployment_graphs))
+        
+print('\twritting charges to file...')
 
