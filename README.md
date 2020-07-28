@@ -66,9 +66,19 @@ You need to fix permissions of the script:
 │           ├── deployment_graphs_ASR                   # - for CoRE_v2_ASR
 │           └── deployment_graphs_FSR                   # - for CoRE_v2_FSR
 │
-└── Charge_Assigned_CoRE_MOFs                           # CoRE v2 structures with MPNN charges assigned to them
-    ├── MPNN_CoRE-ASR.tar.gz                            # - CoRE v2 ASR (All Solvents Removed) structures with MPNN charges
-    └── MPNN_CoRE-FSR.tar.gz                            # - CoRE v2 FSR (Free Solvents Removed) structures with MPNN charges
+├── Charge_Assigned_CoRE_MOFs                           # CoRE v2 structures with MPNN charges assigned to them
+│   ├── MPNN_CoRE-ASR.tar.gz                            # - CoRE v2 ASR (All Solvents Removed) structures with MPNN charges
+│   └── MPNN_CoRE-FSR.tar.gz                            # - CoRE v2 FSR (Free Solvents Removed) structures with MPNN charges
+│
+└── adsorption_simulations                              # Adsorption simulation details for Henry coefficients
+    ├── analyze_henry.ipynb                             # - Notebook that analyzes results stored in simulation results directory
+    ├── run_henry.jl                                    # - The Julia script which runs the Henry coefficients
+    ├── run_henry.sh                                    # - 
+    ├── submit_henry.sh                                 # - Two files used to submit Adsorption calculations to a cluster
+    ├── iqeq_xtals                                      # - Crystals (from a test set in one of our MPNN runs) with I-QEq charges assigned
+    ├── mpnn_xtals                                      # - Crystals (from a test set in one of our MPNN runs) with MPNN charges assigned
+    ├── ddec_xtals                                      # - Crystals (from a test set in one of our MPNN runs) with DDEC charges assigned
+    └── simulations.tar.gz                              # - Simulations results stored in a tarball.
 ```
 
 {1}
