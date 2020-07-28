@@ -1,0 +1,31 @@
+data_PIYZAZ_clean_PM
+_symmetry_space_group_name_H-M	'P1'
+_cell_length_a	8.995000
+_cell_length_b	8.995000
+_cell_length_c	8.995000
+_cell_angle_alpha	60.000001
+_cell_angle_beta	60.000002
+_cell_angle_gamma	60.000000
+_symmetry_Int_Tables_number 1
+
+loop_
+_symmetry_equiv_pos_as_xyz
+'x,y,z'
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_charge
+Cd1	Cd	0.125000	0.625000	0.625000	0.727288
+Cd2	Cd	0.875000	0.375000	0.375000	0.727288
+C1	C	0.026540	0.920380	0.526540	-0.181822
+C2	C	0.420380	0.526540	0.526540	-0.181822
+C3	C	0.026540	0.526540	0.526540	-0.181822
+C4	C	0.026540	0.526540	0.920380	-0.181822
+C5	C	0.579620	0.473460	0.473460	-0.181822
+C6	C	0.973460	0.079620	0.473460	-0.181822
+C7	C	0.973460	0.473460	0.473460	-0.181822
+C8	C	0.973460	0.473460	0.079620	-0.181822
