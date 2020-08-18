@@ -2,7 +2,7 @@
 
 Jupyter Notebook to produce data for:
 
-[A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.](https://chemrxiv.org/articles/Message_Passing_Neural_Networks_for_Partial_Charge_Assignment_to_Metal-Organic_Frameworks/12298487)
+[A. Raza, A. Sturluson, C. M. Simon, and X. Fern. Message passing neural networks for partial charge assignment to metal-organic frameworks.](https://pubs.acs.org/doi/10.1021/acs.jpcc.0c04903)
 
 ## Assigning MPNN charges to a new MOF 
 We have created a [Docker](https://www.docker.com/why-docker) image to facilitate assigning MPNN charges to a new MOF. Docker provides an image-based deployment model that makes it easy to share applications with all of their dependencies across multiple environments. Docker image can fully encapsulate not just the code, but the entire dependency stack down to the hardware libraries. 
